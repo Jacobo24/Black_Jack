@@ -25,10 +25,10 @@ print("Mira las cartas")
 for carta, valor in cartas.items():
     print("la carta {} vale {}".format(carta, valor))
 
-print("Toma estas dos cartas")
+print("Escoge dos cartas")
 lista_cartas = list(cartas)
 
-print("Ha seleccionado:", end=" ")
+print("Has escogido:", end=" ")
 carta = choice(lista_cartas)
 score = cartas[carta]
 print(carta, end=" ")
@@ -38,8 +38,17 @@ print(carta, end=" ")
 print(" tu puntuación es de:", score)
 
 
-main_banca = sample(lista_cartas, 2)
-score_banca = sum(cartas[carta] for carta in main_banca)
-print("La banca tiene: {} {} la banca ha sacado: {}".format(main_banca[0],
-                                                          main_banca[1],
-                                                          score_banca))
+main_rival = sample(lista_cartas, 2)
+score_rival = sum(cartas[carta] for carta in main_rival)
+print("La banca tiene: {} {} la banca ha sacado: {}".format(main_rival[0],
+                                                          main_rival[1],
+                                                          score_rival))
+def menu():
+    if score >= score_rival:
+        print("Ganaste")
+    elif score <= score_rival:
+        print("Perdiste")
+    elif score == score_rival:
+        print("Empate")
+
+menu()
