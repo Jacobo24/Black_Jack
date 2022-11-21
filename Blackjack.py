@@ -21,7 +21,8 @@ cartas = {
 print("Cartas: {}".format(" ".join(cartas.keys())))
 print("Puntos: {}".format(list(cartas.values())))
 
-print("Mira las cartas")
+print("Cada carta tiene su valor")
+print("Mira")
 for carta, valor in cartas.items():
     print("la carta {} vale {}".format(carta, valor))
 
@@ -35,12 +36,12 @@ print(carta, end=" ")
 carta = choice(lista_cartas)
 score += cartas[carta]
 print(carta, end=" ")
-print(" tu puntuación es de:", score)
+print(" tu puntuación es: ", score)
 
 
 main_rival = sample(lista_cartas, 2)
 score_rival = sum(cartas[carta] for carta in main_rival)
-print("La banca tiene: {} {} la banca ha sacado: {}".format(main_rival[0],
+print("Tu rival tiene: {} {} su puntauación es:  {}".format(main_rival[0],
                                                           main_rival[1],
                                                           score_rival))
 def menu():
