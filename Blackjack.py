@@ -1,5 +1,8 @@
 from random import choice, sample
 
+print("Vamos a jugar al Black Jack")
+
+
 cartas = {
     chr(0x1f0a1): 11,
     chr(0x1f0a2): 2,
@@ -15,19 +18,14 @@ cartas = {
     chr(0x1f0ad): 10,
     chr(0x1f0ae): 10,
 }
-
 print("Cartas: {}".format(" ".join(cartas.keys())))
 print("Puntos: {}".format(list(cartas.values())))
 
-print("1\ Iteración estándar sobre un diccionario")
+print("Mira las cartas")
 for carta, valor in cartas.items():
     print("la carta {} vale {}".format(carta, valor))
 
-print("2\ Iteración ordenada sobre un diccionario")
-for carta in sorted(cartas.keys()):
-    print("la carta {} vale {}".format(carta, cartas[carta]))
-
-print("3\ Black Jack")
+print("Toma estas dos cartas")
 lista_cartas = list(cartas)
 
 print("Ha seleccionado:", end=" ")
@@ -37,10 +35,11 @@ print(carta, end=" ")
 carta = choice(lista_cartas)
 score += cartas[carta]
 print(carta, end=" ")
-print(" >>> su puntuación es de", score)
+print(" tu puntuación es de:", score)
+
 
 main_banca = sample(lista_cartas, 2)
 score_banca = sum(cartas[carta] for carta in main_banca)
-print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
+print("La banca tiene: {} {} la banca ha sacado: {}".format(main_banca[0],
                                                           main_banca[1],
                                                           score_banca))
